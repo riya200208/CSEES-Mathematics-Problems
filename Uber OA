@@ -1,0 +1,18 @@
+//Link : https://www.desiqna.in/12497/uber-sde-oa-bit-manipulation
+
+In this question we need to find the no. of pairs where aj ^ ai >aj & ai [ i<j]
+Hence for any sort of Binary  the first bit from right can help us to decide the greater one
+For Eg :
+      1000 > 0111 [can got decide by 1st set bit from right]
+For any two element if both MSB (leftmost set bit) are 1 
+xor result : 0
+and result : 1
+
+After that we need to check for every jth element : 
+count of element having different MSB's[leftmost set bit position]
+Logic :  if MSB > current MSB [ then xor result will have a greater MSB than And result  
+        ( Eg: 1001  and current element = 11  xor : 1010  And: 1 as MSB> current MSB -> xor>And)]
+        if MSB < current MSB [ then And result will not have the current MSB  But the xor reult will have ]
+        ( Eg: 00101  and current element = 10010  xor : 10111  And: 0 as MSB> current MSB -> xor>And)]
+        if MSB = current MSB [ then And result will have the current MSB but Xor result will have zero in that position ]
+         ( Eg: 1001  and current element = 1000  xor : 1  And: 1000 as MSB==current MSB -> xor<And)]

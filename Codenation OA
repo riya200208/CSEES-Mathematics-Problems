@@ -1,0 +1,24 @@
+//Link : https://www.desiqna.in/11229/triology-codenation-coding-sde-set-2023-hard-manipulation
+
+Here the intuition will be storing the prefix sum for no of zeros and all the bit positions of all the elements of the array. 
+Assume: N is the size of the array, pref[N][32]  and pref[I][j] will be storing the no.of zeros in the bit position j for all the elements up to the ith index.
+
+For each query [l1 l2]  [l3 l4]
+for each jth bit position:
+   no. of zeros from l1 to l2 for jth bit position(say k1) = pref[l2][j]-pref[l1-1][j]
+   no. of zeros from l3 to l4 for jth bit position (say k2)= pref[l4][j] - pref[l3-1][j]
+   if(k==0 && k2 == 0)
+        from l2 to l1 in the jth bit position we have 1 [as no zeros are there]
+        from l3 to l4 in the jth bit position we have 1 [as no zeros are there]
+        so in the answer jth bit will be zero [ as both have the same bit]
+   else if( k1 == 0 || k2==0)
+        ans = ans|1<<j [ as any one of the ranges will  have 1 for the jth bit position]
+   else
+       nothing to do  [ as both will have 0  so 0 will be included to answer]
+
+ 
+
+
+
+
+

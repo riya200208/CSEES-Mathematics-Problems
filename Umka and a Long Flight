@@ -1,0 +1,27 @@
+//Link : https://codeforces.com/contest/1811/problem/D
+/*
+  Here for this question  a series can help is 
+  Area for the given reactange would be:
+  fn *f(n+1) = fn*(fn + fn-1) = fn^2 + fn*fn-1 = fn^2 + (fn-1)^2 + fn-1 * fn-2   = fn^2 + fn-1^2 + fn-2^2 + ..... + f1^2 + f1*f0 [N+1 squares]
+  so for the rectange of side (fn, fn+1) first partion that we can do is keep fn*fn side and do further partion of fn*fn-1
+  To make this happen we need to check the colored element is lying in the side of fn*fn-1 or not so if the we need to find the index position of (x,y) 
+  [1 based indexing]
+  From left : y
+  From right : fn+1 - y +1 
+  minm : minm of y and fn+1 - y +1
+  Hence if minm > fn-1 then we can't do further partion.
+  But if minm<= fn-1 then we can do partion for the rectangle of side fn-1*fn  
+  for this time height is more so we need to exchange the values of x,y  [ as we are tilting the rectangle , so row will become column and vice-versa]
+  
+  */
+  
+  
+//f has used for storing fibonacci numbers f[0]=f[1]=1
+ boolean dfs(int f[],int n,int x,int y)
+ {
+    if(n==1)
+      return true; //last two ones
+    if(Math.min(y,f[n+1]-y+1) > f[n-1])
+        return false;
+    return dfs(f,n-1,Math.min(y,f[n+1]-y+1),x);
+    }

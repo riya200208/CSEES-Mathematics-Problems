@@ -1,0 +1,19 @@
+//Link : https://codeforces.com/problemset/problem/1385/A
+
+/*
+    here 
+    case 1: a is minimum
+            then x = b, y = b or a, z =a
+            so we need two large elements to be equal 
+    case 2: b is minm
+            then x = a, y = c and z = a or c
+            so we need two large elements to be equal 
+    case 3: c is minm
+            then x = a or b , y = b, z = a
+            so we need two large elements to be equal 
+            
+    Hence to get an answer we require two large elements to be equal 
+    As you can print them in any order so
+    print 1 , minm of a,b,c  and maxm of a,b,c
+    */
+         

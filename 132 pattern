@@ -1,0 +1,38 @@
+//Link : https://leetcode.com/problems/132-pattern/
+
+/*
+i<j<k
+->nums[i]<nums[k]<nums[j]
+we can use a stack  where we can keep track of jth element and a last pointer to keep track of kth element
+intialize last pointer with minimum integer value
+Traverse in reverse
+if you got an element less than last element
+  return true ->why this: because during the first iteration stack is empty so current element will go into the stack.
+              -> for second iteration if you got an element greater than stack's peek then only last pointer's value would change with the stack's peek 
+              ->else last will remain same with the minimum value and this condition will not gonna true
+              ->if last pointer's value got updated then we will be with last<stack's element 
+              ->so if we got an element less than last we got our sequece: current<last<stack's element
+if you got some element > stack's peek element
+  assign last element as stack's peek element
+  pop one
+push the current element to the stack
+
+*/
+class Solution {
+    public boolean find132pattern(int[] nums) {
+        Stack<Integer>st = new Stack<>();
+        int last = Integer.MIN_VALUE;
+        for(int i=nums.length-1;i>=0;i--)
+        {
+            if(nums[i]<last)
+                return true;
+            while(!st.isEmpty() && nums[i]>st.peek())
+            {
+                last = st.peek();
+                st.pop();
+            }
+            st.push(nums[i]);
+        }
+        return false;
+    }
+}

@@ -1,0 +1,68 @@
+//Link : https://codeforces.com/contest/1816/problem/C
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+import java.io.*;
+public class Main
+{
+      static void print(String s)
+    {
+        System.out.println(s);
+    }
+   static boolean find(long arr[])
+   {
+       long maxm=0;
+       int n = arr.length;
+       for(int i=1;i<n;i++)
+       {
+           if(arr[i]>=arr[i-1]){
+               maxm+=(long)(arr[i]-arr[i-1]);
+               continue;
+           }
+           if(i==1) {
+               long red = arr[i-1]-arr[i];
+               if(maxm<red)
+                    return false;
+                maxm-=red;
+           }
+            
+       }
+       return true;
+   }
+	public static void main(String[] args) throws IOException{
+		 BufferedReader sc=new BufferedReader(new InputStreamReader(System.in));
+           long t = Long.parseLong(sc.readLine());
+	    
+		while(t>0)
+		{
+		 
+		    
+		   int n = Integer.parseInt(sc.readLine());
+		    long arr[]= new long[n];
+		    String st[]=sc.readLine().split(" ");
+		    long maxm=0;
+		    for(int i=0;i<n;i++)
+		    {
+		        arr[i]+=Integer.parseInt(st[i]);
+		        if(i>0 && i<n-1)
+		        {
+		           
+		            long red = arr[i-1]-arr[i];
+		            arr[i]=arr[i-1];
+		            arr[i+1]=red;
+		        }
+		    }
+		     if(n%2 >0||(arr[n-2]<=arr[n-1]))
+		            print("YES");
+		     else
+		            print("NO");
+		    t--;
+		}
+	}
+}

@@ -1,0 +1,71 @@
+//Link: https://codeforces.com/contest/1796/problem/C
+
+we are given l:lower u : upper bound
+so the sequence with  that  can be created with minimum product or with minimum numbers used is:
+ l  2*l 2^2*l  . . . .. . 2^n*l
+ because 2 is the smallest multiplier 
+ 
+ 
+ the longest sequence that can be created will surely be the length of the sequence because we have used the smallest multiplier as well as smallest starting:
+ 
+ 2^n*l  <= u
+ n  <= log base 2(u/l)
+ sequence length = n+1;
+ 
+ similarly 
+ 
+ l+1  2*(l+1) 2^2*(l+1)  . . . .. . 2^n*(l+1)
+ but how far we can go by adding 1 to the lower bound so that this condition should be maintained
+ 2^n*l <= u
+ l<=u/2^n
+ we know the value of n calculated above so by using this we will get the last number that can be used as starting point
+ 
+ Now we will be finding that which number will be the last one if we replace a 2 with 3
+ Here binary search will help
+ lower bound: l && upper bound uu: calculated one [u/2^n]
+ conditions 
+      mid = l+ (uu-l)/2 //mid point
+      if  mid*(2^n-1)*3 <= u
+          store this mid as lastOne
+          increse your lower bound
+      else
+          decrease your upper bound
+          
+          
+ LastOne will be the last number where we can replace one 2 with 3
+ 
+ we are replacing 2 with only one 3?
+
+ ->
+ for the initial sequence the maximum length we got as n+!
+ for the last one we didn't allowed to multiply it with one more 2 so that it should not come out of the bounds
+ so we can't multiply one more 2
+ 
+ Now if we replace one two in the sequence with one 3
+ last one : 2^(n-1)*l*3 there could be a possibility that this term is less than u
+ but what if 
+ last one : 2^(n-2)*l*9 there is no possiblility
+ 
+ because from the initial sequence
+ 2^n*l <=u 
+ but  2^(n+1)*l >u 
+      -> 2^(n-2)*l*8 > u or 2^(n-1)*l*4 >u
+ 
+ and 
+ 2^(n-2)*l*9  > 2^(n-2)*l*8 [ so no possiblity]
+
+ but 2^(n-1)*l*3 < 2^(n-1)*l*4  [ so possibility is there]
+ 
+ Hence only one 2 can be replaced with one 3.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 

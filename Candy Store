@@ -1,0 +1,23 @@
+//Link : https://codeforces.com/problemset/problem/1798/C
+
+we got 
+array a : No.of candy in each ith jar
+array b : cost of each candy in the ith jar
+
+Total cost array [ai*bi]
+we need to divide this cost for each ith jar in such a way we need the to use minimum cost tags
+COST ARRAY : [ a1*b1 , a2*b2, .....,an*bn]
+
+i want to find the common divisior of costs 
+Then that will help to group the jars those are possible to
+if that gcd is divisible by lcm of costs of each candy then that grouping is possible only
+
+why gcd%lcm?
+
+because we are using gcd as cost for each packet of candy and that cost should be a multiple of cost of each cnady.
+
+
+
+
+
+

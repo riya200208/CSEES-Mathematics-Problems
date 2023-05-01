@@ -1,0 +1,17 @@
+// Link : https://codeforces.com/contest/1823/problem/C
+
+Here the numbers can be formed like this
+
+1 number -> 2 same primes 
+[ because they will have 1 prime factor itself only and 1 more composite factor multiplication of them ] 
+1 number -> 3 different primes
+[ 3 different prime factors them only and multiplication of them atleast  3 composite factors ] 
+
+so calculate the frequency of prime divisors for each number then 
+traverse through those frequencies 
+->if odd [ increase counter]
+->add frequency/2 to your answer
+
+end loop 
+
+add counter/3 to the answer

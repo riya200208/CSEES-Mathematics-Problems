@@ -1,0 +1,11 @@
+//Link : https://www.codechef.com/problems/MINBITS
+
+contiguos segment  of 1's can be replaced by the difference of two set bits
+
+EG:
+1111 
+-> 10000 - 00001
+11
+-> 100 - 001
+
+using this logic we can replace each contiguos segment of 1's for the given string
